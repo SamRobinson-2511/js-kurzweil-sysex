@@ -1,54 +1,62 @@
-// let log = console.log.bind(console)
-let ctx = new AudioContext(), oscillators = {};
-const startButton = document.querySelector('button');
+const connectButton = document.getElementById('connect')
+const listButton = document.getElementById('list');
 
-
-startButton.addEventListener('click', ()=> {
-  ctx = new AudioContext();
-  console.log(ctx);
-})
 
 if (navigator.requestMIDIAccess) {
-  navigator.requestMIDIAccess()
-  .then(success, failure);
+  navigator.requestMIDIAccess().then(success, failure);
 }
 
-function success (midi){
-  let inputs = midi.inputs.values();
-  for (let input = inputs.next(); input && !input.done; input = inputs.next()) {
-    input.value.onmidimessage = onMIDIMessage;
-  }
+
+function success (midiAccess){
+  // console.log(midiAccess)
+  midiAccess.addEventListener('statechange', updateDevices)
+  const inputs = midiAccess.inputs;
+
+  inputs.forEach((input) => {
+    console.log(input)
+    input.addEventListener('midimessage', handleInput);
+  })
+}
+
+function updateDevices(event){
+  console.log(
+    `
+    Name:  ${event.port.name}
+    Brand: ${event.port.manufacturer}, 
+    State: ${event.port.state}, 
+    Type: ${event.port.type}
+    `)
 }
 
 function failure(){
-  console.error('No access to your MIDI devices.')
+  console.log('could not connect')
 }
 
-function onMIDIMessage(message){
-  let frequency = midiNoteToFrequency(message.data[1]);
+const handleInput = (input) => {
+  const command = input.data[0];
+  const note = input.data[1];
+  const velocity = input.data[2];
+  console.log(command, note, velocity);
 
-  if (message.data[0] === 144 && message.data[2] > 0 ){
-    playNote(frequency);
+  switch (command) {
+    case 144: //note on 
+    if (velocity > 0) {
+      noteOn(note, velocity)
+    } else {
+      noteOff(note);
+    }
+    break;
+    case 128: //noteoff
+      noteOff();
+      break;
   }
-  if (message.data[0] === 128 || message.data[2] === 0){
-    stopNote(frequency);
-  }
-  if (message.data[0] === 172)
 }
 
-function midiNoteToFrequency (note) {
-  return Math.pow(2, ((note-69) / 12)) * 440;
+const noteOn = (note, velocity) => {
+  console.log(note, velocity)
 }
 
-function playNote(frequency){
-  oscillators[frequency] = ctx.createOscillator();
-  oscillators[frequency].frequency.value = frequency;
-  oscillators[frequency].connect(ctx.destination);
-  oscillators[frequency].start(ctx.currentTime);
-  console.log(frequency);
-}
+const noteOff = (note) => {
+  console.log(note)
 
-function stopNote (frequency){
-  oscillators[frequency].stop(ctx.currentTime);
-  oscillators[frequency].disconnect();
 }
