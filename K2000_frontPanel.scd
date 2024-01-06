@@ -27,7 +27,7 @@ win.layout_(GridLayout.rows(topButton, bottomButton));
 k = MIDIOut.newByName("Micro Express USB #9", "Port 1");
 
 
-
+//GUI buttons and functions - going to refactor soon for my own brain
 (
 Window.closeAll;
 w = Window.new("K2000r Sysex", bounds: Rect(1000, 100, 100, 400)).front;
@@ -97,44 +97,44 @@ w = Window.new("K2000r Sysex", bounds: Rect(1000, 100, 100, 400)).front;
 ~disk.string = 'disk';
 
 ~n1 = Button.new();
-~n1.action_({});
-~n1.string = '~n1';
+~n1.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x1, 0x7F, 0xF7])});
+~n1.string = '1';
 
 ~n2 = Button.new();
-~n2.action_({});
-~n2.string = '~n2';
+~n2.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x2, 0x7F, 0xF7])});
+~n2.string = '2';
 
 ~n3 = Button.new();
-~n3.action_({});
-~n3.string = '~n3';
+~n3.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x3, 0x7F, 0xF7])});
+~n3.string = '3';
 
 ~n4 = Button.new();
-~n4.action_({});
-~n4.string = '~n4';
+~n4.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x4, 0x7F, 0xF7])});
+~n4.string = '4';
 
 ~n5 = Button.new();
-~n5.action_({});
-~n5.string = '~n5';
+~n5.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x5, 0x7F, 0xF7])});
+~n5.string = '5';
 
 ~n6 = Button.new();
-~n6.action_({});
-~n6.string = '~n6';
+~n6.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x6, 0x7F, 0xF7])});
+~n6.string = '6';
 
 ~n7 = Button.new();
-~n7.action_({});
-~n7.string = '~n7';
+~n7.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x7, 0x7F, 0xF7])});
+~n7.string = '7';
 
 ~n8 = Button.new();
-~n8.action_({});
-~n8.string = '~n8';
+~n8.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x8, 0x7F, 0xF7])});
+~n8.string = '8';
 
 ~n9 = Button.new();
-~n9.action_({});
-~n9.string = '~n9';
+~n9.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x9, 0x7F, 0xF7])});
+~n9.string = '9';
 
 ~n0 = Button.new();
-~n0.action_({});
-~n0.string = '~n0';
+~n0.action_({k.sysex(Int8Array[0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x0, 0x7F, 0xF7])});
+~n0.string = '0';
 
 
 
@@ -152,7 +152,10 @@ w = Window.new("K2000r Sysex", bounds: Rect(1000, 100, 100, 400)).front;
 w.layout_(
 	VLayout(
 		HLayout(~edit, ~f1, ~f2, ~f3, ~f4, ~f5, ~f6, ~f8, ~exit),
-		HLayout(~program, ~setup, ~qAccess, ~effects, ~midi, ~master, ~song, ~disk)
+		HLayout(~program, ~setup, ~qAccess, ~effects, ~midi, ~master, ~song, ~disk),
+		HLayout(~n1, ~n2, ~n3),
+		HLayout(~n4, ~n5, ~n6),
+		HLayout(~n7, ~n8, ~n9)
 	)
 	);
 );
