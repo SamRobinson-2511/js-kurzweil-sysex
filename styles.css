@@ -12,6 +12,10 @@ body {
   flex-direction: column;
 }
 
+.header{
+  justify-content: center;
+}
+
 
 .parent{
   display: flex;
@@ -21,8 +25,7 @@ body {
   border: 4px solid black
 }
 .front-panel{
-  border: 10px solid orange;
-  margin: 9%;
+  border: 3px solid orange;
 }
 .container-left{
   display: flex;
