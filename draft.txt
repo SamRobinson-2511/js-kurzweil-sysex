@@ -1,0 +1,14 @@
+  // switch(id){
+  //   case 'edit':
+  //     console.log('this is edit')
+  //     break;
+  //   case 'f1':
+  //     console.log('this is f1')
+  //     break;
+  //   case 'f2':
+  //     console.log('this is f2')
+  //     break;
+  //   case 'f3':
+  //     console.log('this is f3')
+  //     break;
+  // }

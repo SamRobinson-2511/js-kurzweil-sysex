@@ -110,7 +110,32 @@ w = Window.new("K2000r Sysex", bounds: Rect(1000, 100, 100, 400)).front;
 
 ~n4 = Button.new();
 ~n4.action_({});
-~n4.string = '~n2';
+~n4.string = '~n4';
+
+~n5 = Button.new();
+~n5.action_({});
+~n5.string = '~n5';
+
+~n6 = Button.new();
+~n6.action_({});
+~n6.string = '~n6';
+
+~n7 = Button.new();
+~n7.action_({});
+~n7.string = '~n7';
+
+~n8 = Button.new();
+~n8.action_({});
+~n8.string = '~n8';
+
+~n9 = Button.new();
+~n9.action_({});
+~n9.string = '~n9';
+
+~n0 = Button.new();
+~n0.action_({});
+~n0.string = '~n0';
+
 
 
 

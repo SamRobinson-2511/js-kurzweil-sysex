@@ -19,42 +19,36 @@ body {
 
 .parent{
   display: flex;
-  margin: auto;
-  width: 1200px;
-  height: 500px;
-  border: 4px solid black
+  justify-content: space-around;
+  align-items: stretch;
+
+
 }
 .front-panel{
   border: 3px solid orange;
-  width: 400px;
+  
 }
 .container-left{
-  display: flex;
-  flex-direction:column;
-  background-color: black;
+  
   background: #efefef;
-  width: 600px;
-  padding: 100px;
-  border: 10px solid rgb(58, 142, 58);
+  border: 10px solid rgb(99, 126, 99);
 }
 
 .container-right{
-  background-color: black;
-  width: 600px;
-  padding: 100px;
+  display: flex;
+  
   border: 10px solid rgb(71, 71, 71);
 }
 
 .sub-container{
   height: 100%;
   width: 100px;
-  border: 2px solid red;
+  border: 2px solid rgb(0, 255, 60);
   flex-direction: row;
-
-
 }
 
 #cursor-container{
+  
 
 
 }

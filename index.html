@@ -22,6 +22,7 @@
       <option>MIDI Outport</option>
     </select>
     
+    
 
   </header>
     <!-- main container  -->
@@ -48,8 +49,8 @@
           <button class="button" id="effects">Effects</button>
           <button class="button" id="midi">MIDI</button>
           <button class="button" id="master">MASTER</button>
-          <button class="button" id="master">Song</button>
-          <button class="button" id="master">Disk</button>
+          <button class="button" id="song">Song</button>
+          <button class="button" id="disk">Disk</button>
 
           
         </div>
@@ -86,18 +87,22 @@
         </div>
       </div>
   </div>
+  <br/>
+  <br/>
   <div class="piano">
-    <div data-note="C" class="key white"></div>
-    <div data-note="C#" class="key black"></div>
-    <div data-note="D" class="key white"></div>
-    <div data-note="D#" class="key black"></div>
-    <div data-note="E" class="key white"></div>
-    <div data-note="F#" class="key white"></div>
-    <div data-note="G" class="key white"></div>
-    <div data-note="G#" class="key black"></div>
-    <div data-note="A" class="key white"></div>
-    <div data-note="A#" class="key black"></div>
-    <div data-note="B" class="key white"></div>
+    <div data-note="C" class="key white" id="c"></div>
+    <div data-note="C#" class="key black" id="c#"></div>
+    <div data-note="D" class="key white" id="d"></div>
+    <div data-note="D#" class="key black" id="d#"></div>
+    <div data-note="E" class="key white" id="e"></div>
+    <div data-note="F" class="key white" id="f"></div>
+    <div data-note="F#" class="key black" id="f#"></div>
+    <div data-note="G" class="key white" id="g"></div>
+    <div data-note="G#" class="key black" id="g#"></div>
+    <div data-note="A" class="key white" id="a"></div>
+    <div data-note="A#" class="key black" id="a#"></div>
+    <div data-note="B" class="key white" id="a#"></div>
+    <div data-note="C" class="key white" id="C"></div>
   </div>
 </body>
 </html>

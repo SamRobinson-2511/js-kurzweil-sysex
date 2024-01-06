@@ -1,5 +1,6 @@
 const sysexHeader = [0xF0, 0x07, 0x00, 0x78, 0x14, 0x09];
 const endSysex = [0x7F, 0xF7]
+
 const edit = 0x20;
 const f1 = 0x22;
 // const f2 = ;
@@ -26,13 +27,13 @@ function success (midiAccess){
 
   const inputs = midiAccess.inputs;
   const inputSelect = document.getElementById('selectInport')
+  
   inputs.forEach(input => {
     let option = input.name;
     let inPort = document.createElement('option');
     inPort.textContent = option;
     inputSelect.appendChild(inPort)
     input.addEventListener('midimessage', handleInput);
-    
 
   })
 
@@ -42,9 +43,10 @@ function success (midiAccess){
     let option = output.name;
     let outputPort = document.createElement("option");
     outputPort.textContent = option;
-    outputPort.value = option;
+    outputPort.id = option;  
     outputSelect.appendChild(outputPort)
-    output.addEventListener('midimessage', (event)=>setOutPort())
+    output.addEventListener('change', setOutPort)
+    
     
   })
 
@@ -78,8 +80,8 @@ function failure(){
 }
 
 //select MIDI outport
-const setOutPort = (event)=>{
-  console.log(event)
+const setOutPort = (outport) =>{
+  console.log(outport)
 }
 
 
@@ -89,6 +91,7 @@ const handleInput = (input) => {
   const command = input.data[0];
   const note = input.data[1];
   const velocity = input.data[2];
+  
 
   switch (command) {
     case 144: //note on 
@@ -106,24 +109,16 @@ const handleInput = (input) => {
 
 //callback functions 
 const handleButton = (event) => {
-  let id = event.target.id;
-  
-  switch(id){
-    case 'edit':
-      console.log('this is edit')
-      break;
-    case 'f1':
-      console.log('this is f1')
-      break;
-    case 'f2':
-      console.log('this is f2')
-      break;
-    case 'f3':
-      console.log('this is f3')
-      break;
+  const id = event.target.id;
+    console.log(id)
   }
   
-  }
+
+
+  
+
+  
+  
   
 
 
@@ -133,7 +128,8 @@ const handleButton = (event) => {
 
 
 const noteOn = (note, velocity) => {
-  console.log(note, velocity);
+  console.log(note, velocity)
+
   
 }
 const playNote =(event)=>{
