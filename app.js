@@ -2,7 +2,15 @@
 
 const connectButton = document.getElementById('connect')
 const listButton = document.getElementById('list');
+const buttons = document.querySelectorAll('.button')
+buttons.forEach(button => {
+  button.addEventListener('click', ()=> handleButton(event))
+});
 
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => {
+  key.addEventListener('click', ()=> playNote(key));
+});
 
 
 
@@ -46,8 +54,8 @@ function updateDevices(event){
    console.log(
      `
      Name:  ${event.port.name}
-     Brand: ${event.port.manufacturer}, 
-     State: ${event.port.state}, 
+     Brand: ${event.port.manufacturer} 
+     State: ${event.port.state}
      Type: ${event.port.type}
      Sysex: ${event.port}
      `   
@@ -76,6 +84,10 @@ const handleInput = (input) => {
       noteOff();
       break;
   }
+}
+
+const handleButton = (event) => {
+  console.log(event.target.id)
 }
 
 const noteOn = (note, velocity) => {

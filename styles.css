@@ -1,6 +1,15 @@
-body {
+*, *::before, *::after{
+  box-sizing: border-box;
+}
 
-  font-family: sans-serif;
+body {
+  background-color: #143F68;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 
@@ -75,11 +84,27 @@ body {
 
 }
 
-#output-list {
-  background-color: #3498DB;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+.piano{
+  display: flex;
+}
+
+.key{
+  height: calc(var(--width)*4);
+  width: var(--width);
+}
+
+.white{
+  --width: 100px;
+  background-color: white;
+  border: 1px solid #333;
+
+}
+
+.black{
+  --width: 60px;
+  background-color: black;
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 2;
+  
 }
