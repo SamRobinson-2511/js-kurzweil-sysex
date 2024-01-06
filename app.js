@@ -1,6 +1,15 @@
+const sysexHeader = [0xF0, 0x07, 0x00, 0x78, 0x14, 0x09];
+const endSysex = [0x7F, 0xF7]
+const edit = 0x20;
+const f1 = 0x22;
+// const f2 = ;
+// const f3 = ; 
+// const f4 = ;
+// const f5 = ;
+// const f6 = ; 
+// const exit = ;
+let sysexMessage = null;
 
-
-const connectButton = document.getElementById('connect')
 
 
 
@@ -16,8 +25,14 @@ function success (midiAccess){
   midiAccess.addEventListener('statechange', updateDevices);
 
   const inputs = midiAccess.inputs;
+  const inputSelect = document.getElementById('selectInport')
   inputs.forEach(input => {
+    let option = input.name;
+    let inPort = document.createElement('option');
+    inPort.textContent = option;
+    inputSelect.appendChild(inPort)
     input.addEventListener('midimessage', handleInput);
+    
 
   })
 
@@ -25,11 +40,12 @@ function success (midiAccess){
   const outputSelect = document.getElementById('selectOutport')
   outputs.forEach(output => {
     let option = output.name;
-    let outputPort = document.createElement('option');
+    let outputPort = document.createElement("option");
     outputPort.textContent = option;
     outputPort.value = option;
     outputSelect.appendChild(outputPort)
-    output.addEventListener('click', setOutPort)
+    output.addEventListener('midimessage', (event)=>setOutPort())
+    
   })
 
   const buttons = document.querySelectorAll('.button')
@@ -62,10 +78,9 @@ function failure(){
 }
 
 //select MIDI outport
-const setOutPort =(e)=>{
-  console.log(e.target.value)
+const setOutPort = (event)=>{
+  console.log(event)
 }
-
 
 
 
@@ -91,12 +106,35 @@ const handleInput = (input) => {
 
 //callback functions 
 const handleButton = (event) => {
-  console.log(event.target)
+  let id = event.target.id;
+  
+  switch(id){
+    case 'edit':
+      console.log('this is edit')
+      break;
+    case 'f1':
+      console.log('this is f1')
+      break;
+    case 'f2':
+      console.log('this is f2')
+      break;
+    case 'f3':
+      console.log('this is f3')
+      break;
+  }
+  
+  }
+  
 
-}
+
+
+  
+
+
 
 const noteOn = (note, velocity) => {
-  console.log(note, velocity)
+  console.log(note, velocity);
+  
 }
 const playNote =(event)=>{
   console.log(event.target)

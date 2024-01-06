@@ -26,6 +26,7 @@ body {
 }
 .front-panel{
   border: 3px solid orange;
+  width: 400px;
 }
 .container-left{
   display: flex;
@@ -46,8 +47,10 @@ body {
 
 .sub-container{
   height: 100%;
-  width: 200px;
+  width: 100px;
   border: 2px solid red;
+  flex-direction: row;
+
 
 }
 
