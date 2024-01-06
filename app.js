@@ -1,5 +1,9 @@
+
+
 const connectButton = document.getElementById('connect')
 const listButton = document.getElementById('list');
+
+
 
 
 if (navigator.requestMIDIAccess) {
@@ -8,24 +12,46 @@ if (navigator.requestMIDIAccess) {
 
 
 function success (midiAccess){
-  // console.log(midiAccess)
+  console.log(midiAccess)
   midiAccess.addEventListener('statechange', updateDevices)
-  const inputs = midiAccess.inputs;
+  
+  const inputPorts = midiAccess.inputs.values();
+  console.log(inputPorts)
+  for (const input of inputPorts){
+    console.table(
+      `
+      MIDI Input Port: ${input.name}
+      `
+      )
+  }
 
-  inputs.forEach((input) => {
-    console.log(input)
-    input.addEventListener('midimessage', handleInput);
-  })
+  const outputPorts = midiAccess.outputs.values();
+  for (const output of outputPorts){
+  // console.log(
+  //   `
+  //   MIDI Output Port: ${output.name}
+  //   MIDI Output ID: ${output.id}
+  //   Sysex: ${output.sysexEnabled}
+  //   `
+  //   )
+  
+  }
 }
 
+
+
+
+
 function updateDevices(event){
-  console.log(
-    `
-    Name:  ${event.port.name}
-    Brand: ${event.port.manufacturer}, 
-    State: ${event.port.state}, 
-    Type: ${event.port.type}
-    `)
+   console.log(
+     `
+     Name:  ${event.port.name}
+     Brand: ${event.port.manufacturer}, 
+     State: ${event.port.state}, 
+     Type: ${event.port.type}
+     Sysex: ${event.port}
+     `   
+    )
 }
 
 function failure(){
@@ -57,6 +83,9 @@ const noteOn = (note, velocity) => {
 }
 
 const noteOff = (note) => {
-  console.log(note)
-
 }
+
+const handleOutput = () => {
+  console.log('here')
+}
+
