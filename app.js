@@ -114,6 +114,30 @@ const handleButton = (event) => {
   }
   
 
+outlets = 1;
+
+let cctls = [
+  {name: "VCO 1 PITCH", cc: 34 }
+];
+
+function getRandomInt(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+getRandomInt.local = 1;
+
+function anything(val){
+  let name = messagename;
+  for (c in cctls){
+    let param = cctls[c];
+  }
+  if (param.name) {
+    if (val === undefined){
+      let getRandomInt = (0, 127);
+    }
+    outlet(0, val, param.cc);
+  }
+}
+
 
   
 
