@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="app.js" async></script>
+  <script src ="test.js" async></script>
   <!-- <script src="index2.js" async></script> -->
   <!-- <script src="qwerty-hancock.js" async></script> -->
   <!-- <script src="synth.js"></script> -->
@@ -11,26 +13,24 @@
   <!-- <script src="app2.js" async></script> -->
   <title>JS-MIDI</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="background_styles.css">
 </head>
 <body>
   <header class="header">Kurzweil K2000R SysEx Programmer
-    <button class="button" id="connect">Connect</button>
     <select id="selectInport">
       <option>MIDI Inport</option>
     </select>
+    <button class="button" id="connect">Connect</button>
     <select id="selectOutport">
       <option>MIDI Outport</option>
     </select>
-    
-    
-
   </header>
-    <!-- main container  -->
-    <div class="parent">  
+    <!-- front-panel-parent container  -->
+    <div class="front-panel-parent">  
   
       <div class="container-left">
       <!-- mode selection container -->
-        <div class="front-panel">
+        <div class="soft-buttons">
           <button class="top button" id="edit">Edit</button>
   
           <button class="top button" id="f1">F1</button>
@@ -56,36 +56,36 @@
         </div>
       </div>
 
-        <div class="container-right">
+      <div class="container-right">
         <!--cursor container  -->
-          <div class="sub-container" id="cursor-container">
-            <button class="button" id="up-button">UP</button>
-            <button class="button" id="right-button">RIGHT</button>
-            <button class="button" id="down-button">DOWN</button>
-            <button class="button" id="left-button">LEFT</button>
-          </div>
+        <div class="sub-container-1" id="cursor-container">
+          <button class="button" id="up-button">UP</button>
+          <button class="button" id="right-button">RIGHT</button>
+          <button class="button" id="down-button">DOWN</button>
+          <button class="button" id="left-button">LEFT</button>
+        </div>
         <!-- encoder container  -->
-          <div class="sub-container" id="encoder container">
-            <button class="button" id="minus-button">-</button>
-            <button class="button" id="plus-button">+</button>
-          </div>
+        <div class="sub-container-2" id="encoder-container">
+          <button class="button" id="minus-button">-</button>
+          <button class="button" id="plus-button">+</button>
+        </div>
 
         <!-- numeric keypad -->
-          <div class="sub-container" id="numpad">
-            <button class="button" id="1">1</button>
-            <button class="button" id="2">2</button>
-            <button class="button" id="3">3</button>
-            <button class="button" id="4">4</button>
-            <button class="button" id="5">5</button>
-            <button class="button" id="6">6</button>
-            <button class="button" id="7">7</button>
-            <button class="button" id="8">8</button>
-            <button class="button" id="9">9</button>
-            <button class="button" id="0">0</button>
-            <button class="bigger-button">CANCEL</button>
-            <button class="bigger-button">ENTER</button>
-        </div>
+        <div class="sub-container-3" id="numpad">
+          <button class="button" id="1">1</button>
+          <button class="button" id="2">2</button>
+          <button class="button" id="3">3</button>
+          <button class="button" id="4">4</button>
+          <button class="button" id="5">5</button>
+          <button class="button" id="6">6</button>
+          <button class="button" id="7">7</button>
+          <button class="button" id="8">8</button>
+          <button class="button" id="9">9</button>
+          <button class="button" id="0">0</button>
+          <button class="bigger-button">CANCEL</button>
+          <button class="bigger-button">ENTER</button>
       </div>
+    </div>
   </div>
   <br/>
   <br/>

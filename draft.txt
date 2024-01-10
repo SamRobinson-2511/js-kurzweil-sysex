@@ -12,3 +12,19 @@
   //     console.log('this is f3')
   //     break;
   // }
+
+
+
+
+  function updateDevices(event){
+
+  //  console.log(
+  //    `
+  //    Name:  ${event.port.name}
+  //    Brand: ${event.port.manufacturer} 
+  //    State: ${event.port.state}
+  //    Type: ${event.port.type}
+  //    Sysex: ${event.port}
+  //    `   
+  //   )
+}

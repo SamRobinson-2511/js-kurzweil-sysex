@@ -7,6 +7,43 @@ w.front;
 
 Window.screenBounds;
 
+
+(
+Window.closeAll;
+
+
+
+)
+
+
+
+(
+Window.closeAll;
+
+w=Window().layout_( GridLayout.rows(
+    [Knob(), Knob(), Knob(), Knob(), Knob(), Knob(), Knob(), Knob()],
+	[Knob(), Knob(), Knob(), Knob(), Knob(), Knob(), Knob(), Knob()],
+	[Knob(), Knob(), Knob(), Knob(), Knob(), Knob(), Knob(), Knob()]
+)).front;
+)
+
+
+
+(
+Window.closeAll;
+w = Window.new('Yamaha REV500 Controller', Rect(
+	(Window.screenBounds.width - 500) /2,
+	(Window.screenBounds.height - 500) /2,
+	500,
+	500)
+);
+w.layout_( GridLayout.rows(
+	[Knob(), Knob(), Knob(), Knob(), Knob(), Knob(), Knob(), Knob
+).front;
+
+w.alwaysOnTop_(true);
+)
+
 (
 var win, topButton, bottomButton;
 Window.closeAll;

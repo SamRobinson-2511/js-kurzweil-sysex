@@ -1,6 +1,8 @@
 const sysexHeader = [0xF0, 0x07, 0x00, 0x78, 0x14, 0x09];
 const endSysex = [0x7F, 0xF7]
 
+
+
 const edit = 0x20;
 const f1 = 0x22;
 // const f2 = ;
@@ -29,11 +31,11 @@ function success (midiAccess){
   const inputSelect = document.getElementById('selectInport')
   
   inputs.forEach(input => {
-    let option = input.name;
+    let device = input.name;
     let inPort = document.createElement('option');
-    inPort.textContent = option;
+    inPort.text = device;
     inputSelect.appendChild(inPort)
-    input.addEventListener('midimessage', handleInput);
+    input.addEventListener('onstatechange', handleInPort);
 
   })
 
@@ -46,8 +48,6 @@ function success (midiAccess){
     outputPort.id = option;  
     outputSelect.appendChild(outputPort)
     output.addEventListener('change', setOutPort)
-    
-    
   })
 
   const buttons = document.querySelectorAll('.button')
@@ -65,18 +65,24 @@ function success (midiAccess){
 
 function updateDevices(event){
 
-  //  console.log(
-  //    `
-  //    Name:  ${event.port.name}
-  //    Brand: ${event.port.manufacturer} 
-  //    State: ${event.port.state}
-  //    Type: ${event.port.type}
-  //    Sysex: ${event.port}
-  //    `   
-  //   )
+   console.log(
+     `
+     ID: ${event.port.id}
+     Name:  ${event.port.name}
+     Brand: ${event.port.manufacturer} 
+     State: ${event.port.state}
+     Type: ${event.port.type}
+     Sysex: ${event.port}
+     `   
+    )
 }
 function failure(){
   alert('could not connect')
+}
+
+//select MIDI inport 
+const handleInPort = (e) =>{
+  console.log('here')
 }
 
 //select MIDI outport
@@ -114,50 +120,16 @@ const handleButton = (event) => {
   }
   
 
-outlets = 1;
-
-let cctls = [
-  {name: "VCO 1 PITCH", cc: 34 }
-];
-
-function getRandomInt(min, max){
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-getRandomInt.local = 1;
-
-function anything(val){
-  let name = messagename;
-  for (c in cctls){
-    let param = cctls[c];
-  }
-  if (param.name) {
-    if (val === undefined){
-      let getRandomInt = (0, 127);
-    }
-    outlet(0, val, param.cc);
-  }
-}
-
-
-  
-
-  
-  
-  
-
-
-
-  
-
-
-
 const noteOn = (note, velocity) => {
   console.log(note, velocity)
+  
+  
 
   
 }
 const playNote =(event)=>{
   console.log(event.target)
+  
 }
 
 const noteOff = (note, velocity) => {
