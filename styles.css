@@ -1,43 +1,13 @@
-*, *::before, *::after{
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #65ad64;
-  margin: 0;
-  flex-direction: column;
-}
-
-.front-panel-parent{
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: 200px;
-  border: 5px solid rgb(174, 121, 121);
-}
-
-.container-left{ 
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  border: 2px solid rgb(99, 126, 99);
-  background-color: #dfdfdf;
-  
-  
-  
-  
 
 
-  
-  
-}
+
 
 /*buttons*/
 
 
 .button{
   min-height: 10px;
-  min-width: 100px;
+  min-width: 60px;
 }
 
 
@@ -66,13 +36,7 @@ body {
 }
 
 
-.num-pad-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 20px;
-  border: 2px solid rgb(0, 255, 60);
-  
-}
+
 /*cursors*/
 
 #up-button{
@@ -97,28 +61,3 @@ body {
 #numpad{
 }
 /*piano css*/
-.piano{
-  display: flex;
-  justify-content: center;
-}
-
-.key{
-  height: calc(var(--width)*4);
-  width: var(--width);
-}
-
-.white{
-  --width: 100px;
-  background-color: white;
-  border: 1px solid #333;
-
-}
-
-.black{
-  --width: 60px;
-  background-color: black;
-  margin-left: calc(var(--width) / -2);
-  margin-right: calc(var(--width) / -2);
-  z-index: 2;
-  
-}

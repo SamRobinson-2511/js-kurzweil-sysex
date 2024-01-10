@@ -1,0 +1,9 @@
+.container-left{ 
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border: 2px solid rgb(99, 126, 99);
+  background-color: #dfdfdf;
+}
+  
