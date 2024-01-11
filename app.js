@@ -3,6 +3,9 @@ const endSysex = [0x7F, 0xF7]
 
 
 
+
+
+
 const edit = 0x20;
 const f1 = 0x22;
 // const f2 = ;
@@ -28,23 +31,30 @@ function success (midiAccess){
   midiAccess.addEventListener('statechange', updateDevices);
 
   const inputs = midiAccess.inputs;
+  const inputIterator = inputs.values();
+  const input = inputIterator.next().value;
   const inputSelect = document.getElementById('selectInport')
   
   inputs.forEach(input => {
-    let device = input.name;
-    let inPort = document.createElement('option');
+    const device = input.name;
+    const inPort = document.createElement('option');
     inPort.text = device;
     inputSelect.appendChild(inPort)
-    input.addEventListener('onstatechange', handleInPort);
-
+    input.addEventListener('onchange', handleInPort);
   })
 
   const outputs = midiAccess.outputs;
+  const outputIterator = outputs.values();
+  const output = outputIterator.next().value;
+  
   const outputSelect = document.getElementById('selectOutport')
   outputs.forEach(output => {
     let option = output.name;
+    let channel = output.channel;
     let outputPort = document.createElement("option");
+    let outChannel = document.createElement("channel")
     outputPort.textContent = option;
+    outChannel.textContent = channel;
     outputPort.id = option;  
     outputSelect.appendChild(outputPort)
     output.addEventListener('change', setOutPort)
@@ -57,11 +67,16 @@ function success (midiAccess){
 
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => {
-    key.addEventListener('click', playNote);
-  });
+    key.addEventListener('click', playNoteScreen);
+  });  
+}
 
-  
-  }
+function sendMIDIMessage(midiAccess, data){
+  const output = midiAccess.output;
+  console.log(output)
+  const noteOnMessage = [0x90, 60, 127];
+}
+
 
 function updateDevices(event){
 
@@ -81,13 +96,17 @@ function failure(){
 }
 
 //select MIDI inport 
-const handleInPort = (e) =>{
-  console.log('here')
+const handleInPort = () =>{
+  console.log('here', e.target.value)
 }
 
 //select MIDI outport
-const setOutPort = (outport) =>{
+const setOutPort = (e) => {
+  let outport = MIDIOutput.send();
   console.log(outport)
+  
+  let output = document.getElementById('selectOutport')
+  console.log(e.target.value())
 }
 
 
@@ -127,7 +146,7 @@ const noteOn = (note, velocity) => {
 
   
 }
-const playNote =(event)=>{
+const playNoteScreen =(event)=>{
   console.log(event.target)
   
 }
@@ -140,3 +159,11 @@ const handleOutput = () => {
   console.log('here')
 }
 
+
+
+
+function keyPressed(e){
+  console.log(e.value)
+
+  
+}

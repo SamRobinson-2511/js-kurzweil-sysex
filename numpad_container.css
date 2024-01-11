@@ -1,0 +1,15 @@
+/* .num-pad-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 20px;
+  grid-column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(255, 0, 217);
+} */
+
+.num-pad-container{
+  display:grid;
+  grid-template-columns: repeat(3, 33%); 
+
+}

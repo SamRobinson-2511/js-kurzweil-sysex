@@ -1,0 +1,16 @@
+.soft-buttons-container {
+  height: 50%;
+  width: 100%;
+  margin: 10px;
+  background-color: lightblue;
+  border: 1px solid black;
+}
+
+.top{
+  margin: 10px;
+  
+}
+
+.bottom{
+  margin: 10px;
+}

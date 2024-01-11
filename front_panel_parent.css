@@ -1,0 +1,6 @@
+.front-panel-parent{
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: 500px;
+  border: 5px solid rgb(191, 22, 22);
+}
