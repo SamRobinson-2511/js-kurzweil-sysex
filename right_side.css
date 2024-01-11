@@ -1,0 +1,6 @@
+.container-right{
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  margin: 10px;
+  border: 10px solid rgb(71, 71, 71);
+}

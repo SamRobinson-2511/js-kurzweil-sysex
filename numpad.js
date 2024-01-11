@@ -1,14 +1,18 @@
-const numpad =document.getElementById('numpad');
+// const sysexHeader = [0xF0, 0x07, 0x00, 0x78, 0x14, 0x09];
+// const endSysex = [0x7F, 0xF7];
+
+const numpad = document.getElementById('numpad');
 numpad.addEventListener('keydown', (e)=>{
-  switch(e.code){
+  switch(e.key){
     
-    case "Numpad0":
-      console.log('0 pressed')
-      
+    case 0:
+      if (length > 0){
+        numPad(0);
+      }
       break;
 
     case "Numpad1":
-      console.log('1 pressed')
+      console.log(e.key)
       break;
 
     case "Numpad2":
@@ -46,4 +50,9 @@ numpad.addEventListener('keydown', (e)=>{
 
 })
 
-1
+function numPad (midiAccess, portID){
+  const sysEx = [0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x0, 0x7F, 0xF7];
+  const output = midiAccess.outputs.get(portID);
+  output.send(sysEx)
+  console.log('here')
+}
