@@ -1,14 +1,17 @@
-.header {
+#header {
+  position: fixed;
+  top:0;
   height: 50px;
   width: 100%;
-  position: fixed;
+  
+  /* z-index: 1000; */
   
   background-color: palegreen;
   
 }
 
 
-.header__wrapper{
+#header__wrapper{
   display: flex;
   justify-content: space-between;
   align-items: center;

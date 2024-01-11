@@ -27,14 +27,16 @@ function success (midiAccess){
 
   const outputs = midiAccess.outputs;
   
-  const outputSelect = document.getElementById('selectOutport')
+  
+  // const outputSelect = document.getElementById('selectOutport')
   outputs.forEach(output => {
-    // console.log(output)
     let option = output.name;
+    console.log(output)
     let outputPort = document.createElement("option");
     outputPort.textContent = option;
     outputPort.id = option;  
-    outputSelect.appendChild(outputPort)
+    option.sysexEnabled = true;
+    // outputSelect.appendChild(outputPort)
     output.addEventListener('change', setOutPort)
   })
 
@@ -133,3 +135,7 @@ const handleOutput = () => {
   console.log('here')
 }
 
+const handleButton = (event) => {
+  let buttonDown = event.target.id;
+  console.log(buttonDown)
+}

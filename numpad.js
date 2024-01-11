@@ -3,14 +3,16 @@
 
 const numpad = document.getElementById('numpad');
 
-numpad.addEventListener('keydown', (e)=>{
-  // console.log(e)
+numpad.addEventListener('keydown', handleKeyDown)
   
+
+
+const handleKeyDown = (e) => {
   switch(e.key){
     
     case "0":
       console.log(e.key)
-      handleButton()
+      // handleButton()
       break;
 
     case "1":
@@ -48,17 +50,26 @@ numpad.addEventListener('keydown', (e)=>{
       case "9":
         console.log('9 pressed')
         break;
+      
+      case "-":
+        console.log(e.key)
+        break;
+
+      case "+":
+        console.log(e.key)
+        break;
   }
-})
+}
 
 function numPad (midiAccess, portID){
   console.log('here')
 }
 
 const handleButton = (event) => {
-  const id = event.target.id;
-  console.log(id)
-  const key = event.key;
-  key === id ? console.log(`here ${key}`):null;
+  console.log(event.key)
+  // const id = event.target.id;
+  // console.log(id)
+  // const key = event.key;
+  // key === id ? console.log(`here ${key}`):null;
 }
 
