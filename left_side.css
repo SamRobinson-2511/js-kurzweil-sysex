@@ -1,5 +1,6 @@
 .container-left{ 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-end;
   margin: 8px;

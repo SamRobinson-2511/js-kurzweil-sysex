@@ -4,6 +4,8 @@ const endSysex = [0x7F, 0xF7]
 
 
 
+
+
 const edit = 0x20;
 const f1 = 0x22;
 // const f2 = ;
@@ -29,18 +31,22 @@ function success (midiAccess){
   midiAccess.addEventListener('statechange', updateDevices);
 
   const inputs = midiAccess.inputs;
+  const inputIterator = inputs.values();
+  const input = inputIterator.next().value;
   const inputSelect = document.getElementById('selectInport')
   
   inputs.forEach(input => {
-    let device = input.name;
-    let inPort = document.createElement('option');
+    const device = input.name;
+    const inPort = document.createElement('option');
     inPort.text = device;
     inputSelect.appendChild(inPort)
     input.addEventListener('onchange', handleInPort);
-
   })
 
   const outputs = midiAccess.outputs;
+  const outputIterator = outputs.values();
+  const output = outputIterator.next().value;
+  
   const outputSelect = document.getElementById('selectOutport')
   outputs.forEach(output => {
     let option = output.name;
@@ -51,7 +57,7 @@ function success (midiAccess){
     outChannel.textContent = channel;
     outputPort.id = option;  
     outputSelect.appendChild(outputPort)
-    output.addEventListener('onchange', setOutPort)
+    output.addEventListener('change', setOutPort)
   })
 
   const buttons = document.querySelectorAll('.button')
@@ -62,10 +68,15 @@ function success (midiAccess){
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => {
     key.addEventListener('click', playNoteScreen);
-  });
+  });  
+}
 
-  
-  }
+function sendMIDIMessage(midiAccess, data){
+  const output = midiAccess.output;
+  console.log(output)
+  const noteOnMessage = [0x90, 60, 127];
+}
+
 
 function updateDevices(event){
 
@@ -91,7 +102,11 @@ const handleInPort = () =>{
 
 //select MIDI outport
 const setOutPort = (e) => {
-  console.log(e)
+  let outport = MIDIOutput.send();
+  console.log(outport)
+  
+  let output = document.getElementById('selectOutport')
+  console.log(e.target.value())
 }
 
 
@@ -150,49 +165,5 @@ const handleOutput = () => {
 function keyPressed(e){
   console.log(e.value)
 
-  // switch(e.key){
-    
-    
-
-
-    // case "Numpad0":
-    //   console.log('1 pressed')
-    //   break;
-
-    // case "Numpad":
-    //   console.log('1 pressed')
-    //   break;
-
-    // case "Numpad2":
-    //   console.log('2 pressed')
-    //   break;
-
-    // case "Numpad3":
-    //   console.log('3 pressed')
-    //   break;
-
-    // case "Numpad4":
-    //   console.log('4 pressed')
-    //   break;
-
-    //   case "Numpad5":
-    //     console.log('5 pressed')
-    //     break;
   
-    //   case "Numpad6":
-    //     console.log('6 pressed')
-    //     break;
-  
-    //   case "Numpad7":
-    //     console.log('7 pressed')
-    //     break;
-  
-    //   case "Numpad8":
-    //     console.log('8 pressed')
-    //     break;
-
-    //   case "Numpad9":
-    //     console.log('9 pressed')
-    //     break;
-  // }
 }

@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="app.js" async></script>
-  <script src ="test.js" async></script>
+  <script src="numpad.js" async></script>
+  <script src="window.js" async></script>
+  
   <!-- <script src="index2.js" async></script> -->
   <!-- <script src="qwerty-hancock.js" async></script> -->
   <!-- <script src="synth.js"></script> -->
@@ -14,15 +16,27 @@
   <title>JS-MIDI</title>
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="styles.css">
+    
     <link rel="stylesheet" href="background_styles.css">
     <link rel="stylesheet" href="piano.css">
-    <link rel="stylesheet" href="numpad_container.css">
-    <link rel="stylesheet" href="cursor.css">
-    <link rel="stylesheet" href="left_side.css">
+    
     <link rel="stylesheet" href="front_panel_parent.css">
+    <link rel="stylesheet" href="left_side.css">
+    <link rel="stylesheet" href="lcd.css">
+    <link rel="stylesheet" href="soft_buttons_container.css">
+    
+
+
+    <link rel="stylesheet" href="right_side.css">
+    <link rel="stylesheet" href="cursor.css">
+    <link rel="stylesheet" href="numpad_container.css">
+    
+    
+    
     <link rel="stylesheet" href="soft_buttons_container.css">
     <link rel="stylesheet" href="button.css">
     <link rel="stylesheet" href="big_button.css">
+    
 
 </head>
 <body>
@@ -35,13 +49,15 @@
       <a href="/about" class="button">About</a>
     
       <!-- move post login -->
-      <select id="selectInport">
-        <option>MIDI Inport</option>
-      </select>
-      <button class="button" id="connect">Connect</button>
-      <select id="selectOutport">
-        <option>MIDI Outport</option>
-      </select>
+      <form>
+        <select id="selectInport">
+          <option>MIDI Inport</option>
+        </select>
+        <button class="button" id="connect">Connect</button>
+        <select id="selectOutport">
+          <option>MIDI Outport</option>
+        </select>
+      </form>
     </div>
   </header>
   
@@ -55,6 +71,7 @@
   
       <div class="container-left">
       <!-- mode selection container -->
+        <div class="lcd-container"> LCD </div>
         <div class="soft-buttons-container">
           <button class="top button" id="edit">Edit</button>
   
@@ -68,7 +85,7 @@
           
           <br/>
 
-          <button class=" bottom button" id="program">Program</button>
+          <button class="bottom button" id="program">Program</button>
           <button class="bottom button" id="setup">Setup</button>
           <button class="bottom button" id="qaccess">QAccess</button>
           <button class="bottom button" id="effects">Effects</button>
