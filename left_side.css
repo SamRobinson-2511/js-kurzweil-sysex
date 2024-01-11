@@ -1,9 +1,9 @@
 .container-left{ 
-  display: grid;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 10px;
-  border: 2px solid rgb(99, 126, 99);
+  align-items: flex-end;
+  margin: 8px;
+  border: 5px solid orange;
   background-color: #dfdfdf;
 }
   

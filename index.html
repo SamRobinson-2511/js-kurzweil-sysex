@@ -12,30 +12,50 @@
   <!-- <script src="app.js" async></script> -->
   <!-- <script src="app2.js" async></script> -->
   <title>JS-MIDI</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="background_styles.css">
-  <link rel="stylesheet" href="piano.css">
-  <link rel="stylesheet" href="numpad.css">
-  <link rel="stylesheet" href="cursor.css">
-  <link rel="stylesheet" href="left_side.css">
-  <link rel="stylesheet" href="front_panel_parent.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="background_styles.css">
+    <link rel="stylesheet" href="piano.css">
+    <link rel="stylesheet" href="numpad_container.css">
+    <link rel="stylesheet" href="cursor.css">
+    <link rel="stylesheet" href="left_side.css">
+    <link rel="stylesheet" href="front_panel_parent.css">
+    <link rel="stylesheet" href="soft_buttons_container.css">
+    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="big_button.css">
+
 </head>
 <body>
-  <header class="header">Kurzweil K2000R SysEx Programmer
-    <select id="selectInport">
-      <option>MIDI Inport</option>
-    </select>
-    <button class="button" id="connect">Connect</button>
-    <select id="selectOutport">
-      <option>MIDI Outport</option>
-    </select>
+  <header class="header">
+    <div class="wrapper header__wrapper">
+      <a href="#" class="logo">LOGO</a>
+      <nav class="nav"></nav>
+      <a href="/login" class="button">Login</a>
+      <a href="/new" class="button">Sign Up</a>
+      <a href="/about" class="button">About</a>
+    
+      <!-- move post login -->
+      <select id="selectInport">
+        <option>MIDI Inport</option>
+      </select>
+      <button class="button" id="connect">Connect</button>
+      <select id="selectOutport">
+        <option>MIDI Outport</option>
+      </select>
+    </div>
   </header>
+  
+
+
+
+
+
     <!-- front-panel-parent container  -->
     <div class="front-panel-parent">  
   
       <div class="container-left">
       <!-- mode selection container -->
-        <div class="soft-buttons">
+        <div class="soft-buttons-container">
           <button class="top button" id="edit">Edit</button>
   
           <button class="top button" id="f1">F1</button>
@@ -48,14 +68,14 @@
           
           <br/>
 
-          <button class="button" id="program">Program</button>
-          <button class="button" id="setup">Setup</button>
-          <button class="button" id="qaccess">QAccess</button>
-          <button class="button" id="effects">Effects</button>
-          <button class="button" id="midi">MIDI</button>
-          <button class="button" id="master">MASTER</button>
-          <button class="button" id="song">Song</button>
-          <button class="button" id="disk">Disk</button>
+          <button class=" bottom button" id="program">Program</button>
+          <button class="bottom button" id="setup">Setup</button>
+          <button class="bottom button" id="qaccess">QAccess</button>
+          <button class="bottom button" id="effects">Effects</button>
+          <button class="bottom button" id="midi">MIDI</button>
+          <button class="bottom button" id="master">MASTER</button>
+          <button class="bottom button" id="song">Song</button>
+          <button class="bottom button" id="disk">Disk</button>
 
           
         </div>
@@ -63,7 +83,7 @@
 
       <div class="container-right">
         <!--cursor container  -->
-        <div class="cursor-container" id="cursor-container">
+        <div class="cursor-container">
           <button class="button" id="up-button">UP</button>
           <button class="button" id="right-button">RIGHT</button>
           <button class="button" id="down-button">DOWN</button>
@@ -76,7 +96,6 @@
         </div>
 
         <!-- numeric keypad -->
-        <div class="num-pad-container">
           <div class="num-pad-container" id="numpad">
             <button class="button" id="1">1</button>
             <button class="button" id="2">2</button>
@@ -93,7 +112,6 @@
         </div>
       </div>
     </div>
-  </div>
   <br/>
   <br/>
   <div class="piano">

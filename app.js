@@ -3,6 +3,7 @@ const endSysex = [0x7F, 0xF7]
 
 
 
+
 const edit = 0x20;
 const f1 = 0x22;
 // const f2 = ;
@@ -35,7 +36,7 @@ function success (midiAccess){
     let inPort = document.createElement('option');
     inPort.text = device;
     inputSelect.appendChild(inPort)
-    input.addEventListener('onstatechange', handleInPort);
+    input.addEventListener('onchange', handleInPort);
 
   })
 
@@ -43,11 +44,14 @@ function success (midiAccess){
   const outputSelect = document.getElementById('selectOutport')
   outputs.forEach(output => {
     let option = output.name;
+    let channel = output.channel;
     let outputPort = document.createElement("option");
+    let outChannel = document.createElement("channel")
     outputPort.textContent = option;
+    outChannel.textContent = channel;
     outputPort.id = option;  
     outputSelect.appendChild(outputPort)
-    output.addEventListener('change', setOutPort)
+    output.addEventListener('onchange', setOutPort)
   })
 
   const buttons = document.querySelectorAll('.button')
@@ -57,7 +61,7 @@ function success (midiAccess){
 
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => {
-    key.addEventListener('click', playNote);
+    key.addEventListener('click', playNoteScreen);
   });
 
   
@@ -81,13 +85,13 @@ function failure(){
 }
 
 //select MIDI inport 
-const handleInPort = (e) =>{
-  console.log('here')
+const handleInPort = () =>{
+  console.log('here', e.target.value)
 }
 
 //select MIDI outport
-const setOutPort = (outport) =>{
-  console.log(outport)
+const setOutPort = (e) => {
+  console.log(e)
 }
 
 
@@ -127,7 +131,7 @@ const noteOn = (note, velocity) => {
 
   
 }
-const playNote =(event)=>{
+const playNoteScreen =(event)=>{
   console.log(event.target)
   
 }
@@ -140,3 +144,55 @@ const handleOutput = () => {
   console.log('here')
 }
 
+
+
+
+function keyPressed(e){
+  console.log(e.value)
+
+  // switch(e.key){
+    
+    
+
+
+    // case "Numpad0":
+    //   console.log('1 pressed')
+    //   break;
+
+    // case "Numpad":
+    //   console.log('1 pressed')
+    //   break;
+
+    // case "Numpad2":
+    //   console.log('2 pressed')
+    //   break;
+
+    // case "Numpad3":
+    //   console.log('3 pressed')
+    //   break;
+
+    // case "Numpad4":
+    //   console.log('4 pressed')
+    //   break;
+
+    //   case "Numpad5":
+    //     console.log('5 pressed')
+    //     break;
+  
+    //   case "Numpad6":
+    //     console.log('6 pressed')
+    //     break;
+  
+    //   case "Numpad7":
+    //     console.log('7 pressed')
+    //     break;
+  
+    //   case "Numpad8":
+    //     console.log('8 pressed')
+    //     break;
+
+    //   case "Numpad9":
+    //     console.log('9 pressed')
+    //     break;
+  // }
+}

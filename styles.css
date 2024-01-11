@@ -5,10 +5,7 @@
 /*buttons*/
 
 
-.button{
-  min-height: 10px;
-  min-width: 60px;
-}
+
 
 
 .container-right{
@@ -18,16 +15,7 @@
   border: 10px solid rgb(71, 71, 71);
 }
 
-.cursor-container {
-  border: 2px solid rgb(0, 255, 60);
-}
 
-#up-button, #down-button {
-}
-
-#left-button, #right-button {
-
-}
 
 .jog-wheel-container {
   display: grid;
@@ -37,27 +25,3 @@
 
 
 
-/*cursors*/
-
-#up-button{
-}
-
-#right-button{
-}
-
-#down-button{
-}
-
-#left-button{
-}
-
-/*plus-minus*/
-
-
-
-.bigger-button{
-}
-
-#numpad{
-}
-/*piano css*/
