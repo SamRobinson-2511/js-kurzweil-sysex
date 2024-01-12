@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="index.js" async></script>
   <script src="app.js" async></script>
+  <script src="header.js" async></script>
+  <script src="routes.js" async></script>
+  <script src="piano.js" async></script>
   <script src="numpad.js" async></script>
   <script src="window.js" async></script>
   
@@ -43,11 +47,11 @@
 
 </head>
 <body>
-  <header class="header">
-    <div class="wrapper header__wrapper">
+  <header id="header">
+    <div id="header__wrapper">
       <a href="#" class="logo">LOGO</a>
       <nav class="nav"></nav>
-      <a href="/login" class="button">Login</a>
+      <a href="/login" class="button" id="login">Login</a>
       <a href="/new" class="button">Sign Up</a>
       <a href="/about" class="button">About</a>
     
@@ -117,18 +121,20 @@
 
         <!-- numeric keypad -->
           <div class="num-pad-container" id="numpad">
-            <button class="button active" id="1">1</button>
-            <button class="button active" id="2">2</button>
-            <button class="button active" id="3">3</button>
-            <button class="button active" id="4">4</button>
-            <button class="button active"="5">5</button>
-            <button class="button active" id="6">6</button>
             <button class="button active" id="7">7</button>
             <button class="button active" id="8">8</button>
             <button class="button active" id="9">9</button>
+            <button class="button active" id="4">4</button>
+            <button class="button active" id="5">5</button>
+            <button class="button active" id="6">6</button>
+            <button class="button active" id="1">1</button>
+            <button class="button active" id="2">2</button>
+            <button class="button active" id="3">3</button>
+            <button class="button active" id="-">+/-</button>
             <button class="button active" id="0">0</button>
-            <button class="bigger-button">CANCEL</button>
-            <button class="bigger-button">ENTER</button>
+            <button class="button active" id="clr">clr</button>
+            <button class="big-button">CANCEL</button>
+            <button class="big-button">ENTER</button>
         </div>
       </div>
     </div>

@@ -2,57 +2,74 @@
 // const endSysex = [0x7F, 0xF7];
 
 const numpad = document.getElementById('numpad');
-numpad.addEventListener('keydown', (e)=>{
+
+numpad.addEventListener('keydown', handleKeyDown)
+  
+
+
+const handleKeyDown = (e) => {
   switch(e.key){
     
-    case 0:
-      if (length > 0){
-        numPad(0);
-      }
+    case "0":
+      console.log(e.key)
+      // handleButton()
       break;
 
-    case "Numpad1":
+    case "1":
       console.log(e.key)
       break;
 
-    case "Numpad2":
+    case "2":
       console.log('2 pressed')
       break;
 
-    case "Numpad3":
+    case "3":
       console.log('3 pressed')
       break;
 
-    case "Numpad4":
+    case "4":
       console.log('4 pressed')
       break;
 
-      case "Numpad5":
+      case "5":
         console.log('5 pressed')
         break;
   
-      case "Numpad6":
+      case "6":
         console.log('6 pressed')
         break;
   
-      case "Numpad7":
+      case "7":
         console.log('7 pressed')
         break;
   
-      case "Numpad8":
+      case "8":
         console.log('8 pressed')
         break;
 
-      case "Numpad9":
+      case "9":
         console.log('9 pressed')
         break;
-  }
+      
+      case "-":
+        console.log(e.key)
+        break;
 
-})
+      case "+":
+        console.log(e.key)
+        break;
+  }
+}
 
 function numPad (midiAccess, portID){
-  const sysEx = [0xF0, 0x07, 0x00, 0x78, 0x14, 0x09, 0x0, 0x7F, 0xF7];
-  const output = midiAccess.outputs.get(portID);
-  output.send(sysEx)
   console.log('here')
 }
+
+const handleButton = (event) => {
+  console.log(event.key)
+  // const id = event.target.id;
+  // console.log(id)
+  // const key = event.key;
+  // key === id ? console.log(`here ${key}`):null;
+}
+

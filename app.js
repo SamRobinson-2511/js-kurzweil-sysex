@@ -1,6 +1,4 @@
-const log = (input) =>{
-  console.log(input);
-}
+
 
 
 
@@ -14,7 +12,7 @@ function success (midiAccess){
 
   const inputs = midiAccess.inputs;
   const inputIterator = inputs.values();
-  const input = inputIterator.next().value;
+  // const input = inputIterator.next().value;
   const inputSelect = document.getElementById('selectInport')
   
   inputs.forEach(input => {
@@ -22,23 +20,23 @@ function success (midiAccess){
     const inPort = document.createElement('option');
     inPort.text = device;
     inputSelect.appendChild(inPort)
-    input.addEventListener('click', handleInPort);
+    input.addEventListener('change', handleInPort);
     input.addEventListener('midimessage', handleInput)
     
   })
 
   const outputs = midiAccess.outputs;
-  const outputIterator = outputs.values();
-  const output = outputIterator.next().value;
   
-  const outputSelect = document.getElementById('selectOutport')
+  
+  // const outputSelect = document.getElementById('selectOutport')
   outputs.forEach(output => {
-    console.log(output)
     let option = output.name;
+    console.log(output)
     let outputPort = document.createElement("option");
     outputPort.textContent = option;
     outputPort.id = option;  
-    outputSelect.appendChild(outputPort)
+    option.sysexEnabled = true;
+    // outputSelect.appendChild(outputPort)
     output.addEventListener('change', setOutPort)
   })
 
@@ -58,20 +56,20 @@ function failure(){
 }
 
 function updateDevices(event){
-  console.log(event, 
-    `
-    Name:  ${event.port.name}
-    Brand: ${event.port.manufacturer} 
-    State: ${event.port.state}
-    Type: ${event.port.type}
-    Sysex: ${event.port}
-    `   
-   )
+  // console.log(event, 
+  //   `
+  //   Name:  ${event.port.name}
+  //   Brand: ${event.port.manufacturer} 
+  //   State: ${event.port.state}
+  //   Type: ${event.port.type}
+  //   Sysex: ${event.port}
+  //   `   
+  //  )
 }
 
 //callbacks 
 const handleInput = (input) => {
-  console.log(input)
+  // console.log(input)
   const command = input.data[0];
   const note = input.data[1];
   const velocity = input.data[2];
@@ -90,14 +88,19 @@ const handleInput = (input) => {
       //note off
       break;
     case 191:
-      console.log(cctl, value)
+      console.log("this is a cc", cctl, value)
       break;
   }
 }
 
+//select MIDI inport 
+const handleInPort = (port) =>{
+  console.log('here', port)
+}
+
 //note messages
 const noteOn = (note, velocity) => {
-  console.log('this is note on callback')
+  console.log('this is note on callback', note, velocity)
 }
 const noteOff = (note) => {
   console.log('this is note off callback')
@@ -113,15 +116,6 @@ const cctlIn = (cc, value) => {
 
 
 
-
-
-
-
-//select MIDI inport 
-const handleInPort = (e) =>{
-  console.log('here', e.target.value)
-}
-
 //select MIDI outport
 const setOutPort = (e) => {
   let outport = MIDIOutput.send();
@@ -130,17 +124,6 @@ const setOutPort = (e) => {
   let output = document.getElementById('selectOutport')
   console.log(e.target.value())
 }
-
-
-
-
-
-
-//callback functions 
-const handleButton = (event) => {
-  const id = event.target.id;
-    console.log(id)
-  }
   
 
 const playNoteScreen =(event)=>{
@@ -152,8 +135,7 @@ const handleOutput = () => {
   console.log('here')
 }
 
-function keyPressed(e){
-  console.log(e.value)
-
-  
+const handleButton = (event) => {
+  let buttonDown = event.target.id;
+  console.log(buttonDown)
 }
