@@ -12,3 +12,6 @@ this is a test
 # WEB MIDI API
 https://youtu.be/KRm_GICiPIQ
 
+setting up local server 
+https://thecodemitter.medium.com/how-to-host-a-local-server-using-vanilla-javascript-8cf0724b00e8
+

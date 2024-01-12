@@ -1,0 +1,12 @@
+{
+  "name": "js-kurzweil-sysex",
+  "version": "1.0.0",
+  "description": "Wendy Carlos https://web.archive.org/web/20231219000353/https://www.wendycarlos.com/resources/K2buttns.gif",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
